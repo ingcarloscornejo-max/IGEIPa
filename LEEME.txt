@@ -1,3 +1,14 @@
+GEI PANAMÁ · v2.2 · CÉDULA PRIMERO Y DATOS GENERALES AUTOMÁTICOS
+1. Escribe primero la cédula: se busca en los registros de la base activa.
+2. Si existe, aparece el nombre y una lista de sus fincas, sin repetir años.
+3. Selecciona una finca: se copian sus datos generales más recientes hasta
+   superficie total, conservando su código. Fecha y año quedan como los ingresaste.
+4. Los demás campos del diagnóstico conservan sus valores actuales.
+5. Si ya existe un análisis de esa finca y año, se avisa y se impide duplicarlo.
+6. Para una finca nueva del mismo productor, deja la lista sin selección y
+   escribe sus datos. No se necesitan cambios SQL para esta actualización.
+Sube los archivos extraídos al mismo repositorio de GitHub y espera el despliegue.
+
 GEI PANAMÁ · VERSIÓN WEB 1.2 · CONSULTA PRINCIPAL POR CÉDULA · v2.1
 En Consultar fincas guardadas aparece un cuadro Buscar productor por cédula.
 1. Escribe la cédula y pulsa Buscar productor (o Enter).
