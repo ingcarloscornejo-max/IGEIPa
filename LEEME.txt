@@ -1,3 +1,12 @@
+GEI PANAMÁ · v2.4 · FORMULARIO NUEVO DESPUÉS DE GUARDAR
+Al guardar correctamente (en navegador o base compartida), se limpia toda la
+ficha y queda lista para comenzar por la cédula de otra finca. Se genera otro
+código y se restablecen fecha, año y valores iniciales. Los registros guardados
+siguen disponibles en la consulta inferior. Si falla el guardado, se conservan
+los datos ingresados. Se eliminaron los botones de Nueva finca / Registrar finca.
+Tras publicar en GitHub, recarga con Ctrl+F5 y comprueba v2.4 arriba.
+No necesitas ejecutar SQL ni cambiar Supabase.
+
 GEI PANAMÁ · v2.3 · CÉDULA EN RENGLÓN SEPARADO
 La cédula aparece primero, sola y fuera de la cuadrícula de datos generales.
 Cédula nueva: continúa completando el productor y la finca sin bloqueo.
