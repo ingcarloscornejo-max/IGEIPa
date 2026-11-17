@@ -1,4 +1,60 @@
-GEI PANAMÁ · VERSIÓN WEB 1.2 · CORRECCIÓN DE DESCANSO · v1.6
+GEI PANAMÁ · VERSIÓN WEB 1.2 · LOGO E ICONO DE LA APP · v1.8
+El logo aprobado incluye el mapa de Panamá, árbol, vaca y búfala. Aparece en la
+cabecera de la app y al imprimir la ficha. Se retiró el rótulo de opción “3 · Panamá”.
+El símbolo sin letras se utiliza como icono del navegador y de pantalla de inicio.
+
+ESTA ACTUALIZACIÓN INCLUYE MÁS ARCHIVOS
+Extrae el ZIP y sube TODOS los archivos extraídos a la raíz del repositorio
+IGEIPa, conservando los nombres y confirmando los cambios. Esta vez no basta con
+subir solo index.html: también deben estar logo-gei.webp, favicon.png,
+apple-touch-icon.png, icon-192.png, icon-512.png, manifest.webmanifest y
+service-worker.js. Los archivos SQL son documentación y no se ejecutan al subirlos.
+No necesitas volver a ejecutar SQL ni cambiar la conexión de Supabase.
+Espera que GitHub Pages termine y recarga con Ctrl+F5; debe aparecer v1.8.
+
+INSTALACIÓN
+Abre el enlace publicado desde el navegador del dispositivo. Cuando el navegador
+ofrezca la instalación, aparecerá el botón Instalar app. También puedes usar la
+opción de su menú para instalar o añadir a la pantalla de inicio. En iPhone/iPad,
+utiliza Compartir > Agregar a pantalla de inicio desde Safari.
+El manifiesto contiene el nombre, los iconos y el modo de ventana independiente.
+El soporte y el momento en que se ofrece instalar dependen del navegador.
+Los recursos visuales pueden almacenarse en caché. Los datos y las sesiones de
+Supabase NO se almacenan en la caché del componente de instalación. La base
+compartida sigue necesitando conexión a Internet; no se agregó sincronización
+sin conexión ni se cambió la forma de guardar las fincas.
+Para identificar una instalación antigua, comprueba la versión de la cabecera.
+
+TERRITORIOS, FERTILIZANTES Y ÁRBOLES · v1.7
+- Para registros nuevos se eliminan las comarcas excepto Ngäbe-Buglé. Las fichas
+  antiguas de otras comarcas no se eliminan y se pueden volver a abrir.
+- Panamá Este se agrega como agrupación operativa solicitada, con Chepo, Chimán
+  y Panamá como distritos seleccionables. No se presenta como nueva provincia
+  legal. Los registros anteriores de Panamá conservan su ubicación original.
+- En la hoja 4, junto a Fertiliza pasturas, aparecen productos fertilizantes.
+  Escribe kg de producto aplicados en TODO EL AÑO y % N de su etiqueta. Puedes
+  añadir más filas. El total neto N se obtiene sumando kg x %N/100; no se suma
+  además el mismo producto como abono orgánico.
+- Abono orgánico tiene un campo aparte en kg/año aplicados al suelo y nombre.
+  Su %N se conserva en los factores del registro (inicialmente 2 %); puede editarse
+  si existe un análisis. Gallinaza usada como alimento no se registra como abono.
+- Si un registro anterior solo tenía N neto, ese valor se conserva. El botón
+  Sustituir por cantidades de producto permite transcribir el desglose sin sumar
+  el mismo uso dos veces. El respaldo conserva ese valor anterior hasta sustituirlo.
+- El método existente de N2O se conserva: N total x EF x 44/28 x GWP x 1,25.
+  No representa una revisión metodológica ni agrega automáticamente CO2 de urea.
+- La cobertura para FINCAS NUEVAS es 20 % del área de pastos. La actualización
+  migra el valor predeterminado antiguo de este navegador una sola vez. Los
+  factores y resultados guardados no cambian solos. Para recalcular una ficha
+  existente: abre Editar factores y referencias > Usar 20 % de árboles en esta
+  finca, luego Guarda la finca. Si deseas cambiar otro valor predeterminado,
+  puedes hacerlo en el editor y guardarlo para nuevas fincas.
+- El ejemplo histórico de Roque conserva 40 % para poder comparar con el Excel.
+- Esta versión muestra v1.7 arriba. Reemplaza solo index.html en GitHub. No
+  requiere cambios SQL ni borrar registros. Las tablas actuales aceptan los
+  nuevos detalles dentro del campo payload del diagnóstico.
+
+CORRECCIÓN DE DESCANSO · v1.6
 El descanso rotacional tiene eventos directos al escribir, cambiar o salir de
 los campos Mangas, Ocupación y Tipo de pastoreo. Se calcula antes de guardar y
 sin depender de la validación de superficies. Pruebas: 2 mangas x 10 días de
