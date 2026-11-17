@@ -1,4 +1,27 @@
-GEI PANAMÁ · VERSIÓN WEB 1.2 · HISTORIAL ANUAL, FECHAS Y CÉDULA · v2.0
+GEI PANAMÁ · VERSIÓN WEB 1.2 · CONSULTA PRINCIPAL POR CÉDULA · v2.1
+En Consultar fincas guardadas aparece un cuadro Buscar productor por cédula.
+1. Escribe la cédula y pulsa Buscar productor (o Enter).
+2. Se muestra el nombre del productor y cada una de sus fincas por separado.
+3. En cada finca aparecen TODOS sus años con fecha, animales, superficie,
+   emisiones brutas, capturas, neto y variación interanual de emisiones.
+4. Ver diagnóstico completo abre los datos capturados de ese año junto al
+   cálculo. Cerrar vuelve a la misma consulta por cédula.
+5. Descargar todos los datos de este productor exporta un CSV con todos sus
+   registros, de todos los años y fincas, además de sus campos completos.
+6. Consultar por provincia / distrito vuelve a la consulta territorial habitual.
+
+La cédula se compara de forma exacta ignorando espacios y guiones. En esta
+consulta se ignoran año, provincia, distrito y búsqueda por nombre para no
+ocultar años anteriores. Los resultados se ordenan por finca y año.
+Cada análisis mantiene sus emisiones anuales; no se suman años diferentes
+como si fueran una única emisión anual. Los totales territoriales se presentan
+solo al volver a la consulta por provincia/distrito, donde se elige un año.
+Los registros antiguos SIN cédula deben completarse en Editar diagnóstico;
+no se adivina su identidad a partir del nombre ni se fusionan fincas diferentes.
+No se cambian ni borran datos existentes. La vista por cédula usa los datos ya
+guardados en la base. No requiere SQL. Publica el paquete y verifica v2.1.
+
+HISTORIAL ANUAL, FECHAS Y CÉDULA · v2.0
 Cada finca conserva un código estable. La cédula identifica al productor, pero
 no sustituye el código de finca: una persona puede tener varias fincas.
 Cédula y fecha aparecen en la captura, lista, ficha individual y exportaciones.
