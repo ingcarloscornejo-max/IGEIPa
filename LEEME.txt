@@ -1,4 +1,21 @@
-GEI PANAMÁ · VERSIÓN WEB 1.2 · PRIMERA PUBLICACIÓN · CONEXIÓN PREPARADA
+GEI PANAMÁ · VERSIÓN WEB 1.2 · AJUSTES DE CAPTURA · VERSIÓN 1.5
+- La suma de las doce filas de distribución no puede superar la superficie total.
+  La superficie total de pastos es un subtotal: no se suma de nuevo. Tampoco se
+  suman las áreas superpuestas del editor de cálculos ni los kilómetros de cercas.
+- Una franja muestra las hectáreas distribuidas y disponibles. Si se supera el
+  total, indica el exceso y deshabilita Guardar finca hasta corregirlo. No recorta
+  ni borra silenciosamente lo escrito. Lo mismo ocurre si se reduce el total.
+- Al entrar en una casilla numérica con cero, el cero se quita para escribir la
+  cantidad. Si se deja vacía, vuelve a cero al salir. Las cifras distintas de cero
+  se conservan para poder editarlas; los valores calculados no se vacían.
+- En pastoreo Rotacional, descanso = (mangas - 1) x días de ocupación. El campo
+  es automático. Con 2 mangas y 10 días de ocupación da 10 días; con 21 y 1 da 20.
+  En Continuo o Alterno el descanso es manual. El número de mangas debe ser entero.
+- No cambia las tablas ni los registros guardados en Supabase. Para actualizar
+  solo reemplaza index.html en la raíz del repositorio de GitHub y confirma el
+  cambio. Cuando GitHub Pages termine de publicar, recarga la app con Ctrl+F5.
+
+PRIMERA PUBLICACIÓN · CONEXIÓN PREPARADA
 La app todavía no está publicada. El archivo index.html ya tiene la URL base y
 la clave pública de tu proyecto de Supabase. No contiene ninguna contraseña.
 1. Extrae el ZIP en tu computadora.
