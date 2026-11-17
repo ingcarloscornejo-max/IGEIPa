@@ -1,4 +1,15 @@
-GEI PANAMÁ · VERSIÓN WEB 1.2 · AJUSTES DE CAPTURA · VERSIÓN 1.5
+GEI PANAMÁ · VERSIÓN WEB 1.2 · CORRECCIÓN DE DESCANSO · v1.6
+El descanso rotacional tiene eventos directos al escribir, cambiar o salir de
+los campos Mangas, Ocupación y Tipo de pastoreo. Se calcula antes de guardar y
+sin depender de la validación de superficies. Pruebas: 2 mangas x 10 días de
+ocupación = 10 días de descanso; 3 x 10 = 20; 21 x 1 = 20.
+Arriba se muestra v1.6 para identificar la versión cargada.
+Actualiza únicamente index.html en GitHub y confirma el cambio. Espera que la
+publicación termine en Actions y recarga con Ctrl+F5. Si no aparece v1.6, el
+navegador o la publicación siguen sirviendo una versión anterior.
+No es necesario ejecutar SQL. Los registros existentes se conservan.
+
+AJUSTES DE CAPTURA · VERSIÓN 1.5
 - La suma de las doce filas de distribución no puede superar la superficie total.
   La superficie total de pastos es un subtotal: no se suma de nuevo. Tampoco se
   suman las áreas superpuestas del editor de cálculos ni los kilómetros de cercas.
