@@ -1,4 +1,77 @@
-GEI PANAMÁ · VERSIÓN WEB 1.2 · LOGO E ICONO DE LA APP · v1.8
+GEI PANAMÁ · VERSIÓN WEB 1.2 · HISTORIAL ANUAL, FECHAS Y CÉDULA · v2.0
+Cada finca conserva un código estable. La cédula identifica al productor, pero
+no sustituye el código de finca: una persona puede tener varias fincas.
+Cédula y fecha aparecen en la captura, lista, ficha individual y exportaciones.
+La cédula se guarda como texto y además se crea una clave normalizada, sin
+espacios ni guiones, para buscar el mismo número con cualquiera de esos formatos.
+En Excel, al importar el CSV, trata las columnas de cédula como Texto para evitar
+que la aplicación las convierta a números o fechas. JSON conserva el valor original.
+No se inventan cédulas ni fechas para los registros antiguos.
+
+NUEVO AÑO DE UNA FINCA
+1. Busca la finca y pulsa el nombre del productor o de la finca.
+2. Pulsa Nuevo análisis de esta finca.
+3. Indica el nuevo año de referencia y la fecha del análisis.
+4. La app prepara otra ficha con el MISMO código de finca y copia los datos del
+   análisis elegido como punto de partida. Revisa y actualiza TODOS los datos
+   que hayan cambiado antes de pulsar Guardar finca.
+5. El análisis anterior queda guardado como un registro independiente.
+Solo se admite un análisis por código de finca y año. Si ya existe, debes abrir
+ese registro para corregirlo. En una ficha guardada el año y código están
+protegidos para no cambiar accidentalmente la identidad o reemplazar otro año.
+La fecha de análisis y el año de referencia son campos distintos; se registran
+ambos, sin inventar fechas futuras. La fecha sugerida es el día del levantamiento.
+
+COMPARACIÓN ANUAL
+Al abrir la ficha aparecen todos los años de ESA FINCA, aunque el panel esté
+filtrado por un único año. La tabla muestra fecha, brutas, capturas, neto, cambio
+de emisiones brutas en toneladas y %, y cambio neto en toneladas.
+Se compara cada fila con el último análisis anterior disponible. Si faltan años,
+se indica el año base utilizado. El primer registro no tiene variación.
+Si las emisiones de la base son cero y las nuevas son positivas, no se muestra
+un porcentaje infinito; se indica que no es calculable. Los cambios de factores
+se señalan para no atribuir toda diferencia a la finca.
+Se conservan los factores guardados con cada diagnóstico; no se recalculan
+análisis históricos con los valores nuevos de forma automática.
+
+DESCARGAS
+Descargar base conserva todos los años. Descargar selección CSV respeta filtros.
+La base incluye Cédula productor y Cédula normalizada como columnas propias,
+fecha de diagnóstico, año, análisis previo y variaciones.
+Descargar historial CSV, en la ficha individual, genera una tabla de los años
+solo de esa finca, con cédula y resultados comparables.
+Respaldo JSON conserva los diagnósticos, factores y vínculo al análisis anterior.
+Si un productor ya estaba registrado sin cédula, abre Editar diagnóstico,
+completa su cédula y guarda. Los demás registros no se borran ni se fusionan.
+
+ACTUALIZACIÓN
+Sube los archivos extraídos al mismo repositorio de GitHub; espera la publicación
+y recarga con Ctrl+F5. Debe aparecer v2.0. No requiere ejecutar SQL: la base ya
+admite el mismo código en años diferentes y los datos nuevos se guardan en payload.
+Pruebas de lógica: conservación de registros previos, tres años de una misma
+finca, disminución de emisiones, factores diferentes, base de emisiones cero,
+rechazo de años duplicados, fechas válidas, búsquedas por cédula, CSV y fincas
+diferentes pertenecientes al mismo productor. La prueba visual real sigue pendiente.
+
+CONSULTA INDIVIDUAL DESDE LOS FILTROS · v1.9
+En la lista filtrada hay una columna Productor(a) y otra Finca. Ambos nombres
+son botones: al pulsarlos se abre el resumen individual del diagnóstico guardado
+para ese año, con brutas, capturas, balance neto, indicador por ha y desglose.
+También se puede usar Ver emisiones en la columna Acciones.
+Cerrar (arriba) o Cerrar y volver a la lista (abajo) conservan los filtros por
+provincia, distrito, año y búsqueda, y los totales de la selección.
+Se pueden consultar otras fincas sucesivamente sin abrir el formulario de edición.
+Editar diagnóstico es una acción aparte; consulta e impresión no cambian la ficha
+de captura ni los datos guardados. Si hay edición pendiente se pide confirmación
+antes de abrir otro diagnóstico para editar.
+Para actualizar sube los archivos de este paquete a la raíz del mismo repositorio
+y confirma los cambios. Espera que GitHub Pages publique y recarga con Ctrl+F5;
+la cabecera debe mostrar v1.9. No necesitas ejecutar SQL ni modificar Supabase.
+Pruebas de lógica: consulta de dos fincas con el mismo filtro, resultados
+individuales, ambos cierres, conservación de filtros/totales y datos de captura.
+La comprobación visual en navegador de este entorno sigue pendiente.
+
+LOGO E ICONO DE LA APP · v1.8
 El logo aprobado incluye el mapa de Panamá, árbol, vaca y búfala. Aparece en la
 cabecera de la app y al imprimir la ficha. Se retiró el rótulo de opción “3 · Panamá”.
 El símbolo sin letras se utiliza como icono del navegador y de pantalla de inicio.
