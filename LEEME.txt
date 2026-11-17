@@ -1,0 +1,201 @@
+GEI PANAMÁ · VERSIÓN WEB 1.2 · PRIMERA PUBLICACIÓN · CONEXIÓN PREPARADA
+La app todavía no está publicada. El archivo index.html ya tiene la URL base y
+la clave pública de tu proyecto de Supabase. No contiene ninguna contraseña.
+1. Extrae el ZIP en tu computadora.
+2. En Tiiny Host carga SOLO index.html, elige un nombre y publica.
+3. Abre el enlace publicado y pulsa Conexión de base.
+4. La URL y la clave pública deben aparecer completas. No necesitas cambiarlas
+   ni pulsar Guardar conexión si ya corresponden al proyecto.
+5. Ingresa tu correo y la contraseña que creaste en Authentication.
+6. Confirma que aparezca Base compartida y cuenta administradora.
+7. Crea una finca de prueba y comprueba que aparezca en farm_diagnostics en
+   Supabase. Cierra y vuelve a abrir la app para verificar su recuperación.
+Los registros de la prueba local NO se suben automáticamente a la nube.
+Exporta su respaldo antes de migrar cualquier dato de trabajo.
+
+CAPTURA EN ORDEN DEL DIAGNÓSTICO · VERSIÓN 1.4
+La pantalla principal muestra datos que se transcriben del diagnóstico. Las
+referencias, factores y estimaciones se abren con el botón Editar factores y
+referencias. No hay secciones plegables entre los campos de captura.
+
+ORDEN DE CAPTURA
+Hoja 1: generalidades del productor y finca, y distribución completa de superficie
+       en el orden de sus filas: naturalizado, mejorado, corte, caña, banco,
+       silvopastoril, cultivo forrajero, rastrojos, reserva, corredor, cultivos e
+       instalaciones. La superficie total de pastos se transcribe del diagnóstico.
+Hoja 2: categorías del hato y otras especies utilizadas por la calculadora.
+Hoja 4: recursos naturales, cercas vivas, pastoreo y condición de los pastos.
+       No se vuelve a pedir la superficie: se utiliza lo escrito en la hoja 1.
+Hoja 5: suplementación estratégica.
+Hoja 7: ordeños, vacas en ordeño, producción diaria y período de ordeño.
+Final: técnico y observaciones. Después se pulsa Guardar finca una sola vez.
+No se solicitan datos de las hojas 3 y 6 porque no alimentan el cálculo actual.
+Provincia, distrito y año son campos de identificación complementarios.
+Las cantidades vacías se conservan como cero.
+
+EDITOR DE FACTORES Y REFERENCIAS
+Abre el botón de arriba para ajustar factores, referencias o estimaciones que no
+se transcriben del diagnóstico: tasas, 40 % de cobertura, longitud estimada de
+cercas, nitrógeno, combustibles y datos adicionales.
+Aplicar cambios y cerrar los aplica a la ficha; después Guarda la finca.
+Usar estos factores para nuevas fincas los guarda como predeterminados en ese
+navegador, sin modificar las fichas anteriores ni otros dispositivos.
+Las referencias se pueden editar y se guardan junto a la finca.
+Conexión de base tiene su propio botón: sus controles no están en la captura.
+
+VINCULACIÓN DE SUPERFICIES
+Corredor, bosque, SSPi, banco y rastrojos se toman de la hoja 1. La condición de
+la hoja 4 determina el área de pasto mejorado bueno y naturalizado regular.
+Los ajustes manuales de las versiones anteriores se conservan en el editor.
+Editar un área de origen elimina el ajuste previo de ese componente y utiliza
+el dato nuevo del diagnóstico. Usar superficies del diagnóstico elimina todos
+los ajustes manuales de áreas. Árboles y cercas mantienen sus opciones automáticas.
+El ejemplo de Roque incluye los datos reales del diagnóstico, y conserva de forma
+explícita el ajuste de banco energético de 1 ha del cálculo anterior. Así mantiene
+las mismas 77,52 t de capturas estimadas. Ese ajuste se puede revisar en el editor.
+En registros antiguos sin datos desglosados, la pantalla pide verificar las áreas
+con el diagnóstico y conserva sus resultados previos. No se borra el registro.
+
+RESULTADOS Y BASE
+Los resultados principales quedan debajo del botón Guardar finca. Las tablas
+con tasas, factores y referencias se encuentran dentro del editor.
+Más abajo están los filtros por año, provincia y distrito y la base descargable.
+CSV incluye cantidades capturadas, cada nuevo campo del diagnóstico en su propia
+columna, resultados y copia de parámetros. JSON permite restaurar todo el registro.
+Los respaldos de versiones anteriores continúan siendo compatibles.
+Sin conectar Supabase, los datos se conservan solo en ese navegador. Descarga
+respaldos y actualiza el mismo enlace de Tiiny para conservar el mismo origen.
+
+ARCHIVOS
+index.html: app completa, sin paquetes ni compilación; funciona en celular y PC.
+base_de_datos.sql: tablas, índices y permisos para la base compartida.
+LEEME.txt: guía de instalación y criterios de cálculo.
+
+PRUEBA INMEDIATA
+1. Extrae el ZIP y abre index.html en Chrome o Edge.
+2. Baja a Consultar fincas guardadas, en Ejemplo y restaurar respaldo pulsa
+   Cargar ejemplo de Roque.
+3. Verás las cifras del cálculo individual de Roque, no las de la matriz.
+4. Registra una finca o edita el ejemplo para probar la hoja.
+5. Exporta CSV para abrir en Excel o un respaldo JSON para restaurar la prueba.
+
+El modo local guarda solo en el navegador y dispositivo utilizados. No es una
+base central ni reemplaza un respaldo. Si el navegador bloquea archivos locales,
+sube index.html a Tiiny y prueba desde su enlace HTTPS.
+No se sube automáticamente ningún ejemplo ni registro local a Supabase.
+
+PUBLICAR EN TIINY HOST
+1. Sube SOLO index.html en la pantalla de carga de Tiiny Host.
+2. Elige tu dirección y publica. No necesitas herramientas de generación IA.
+3. SQL y esta guía son para ti; no hace falta subirlos a Tiiny.
+No se promete gratuidad ni un límite concreto: dependen del plan del proveedor.
+
+ACTIVAR LA BASE COMPARTIDA
+1. Crea un proyecto de Supabase en tu propia cuenta.
+2. Abre SQL Editor, pega base_de_datos.sql y ejecútalo una vez en un proyecto
+   nuevo. Si ya existen tablas con esos nombres, no borres nada: revisa primero.
+3. En Authentication > Users crea/invita las cuentas de los técnicos y tu cuenta.
+   Para esta versión usa cuentas con contraseña. Cada persona usa su propia cuenta.
+4. Para darte acceso al consolidado de todo el equipo, ejecuta el INSERT indicado
+   al final del SQL, sustituyendo TU_CORREO_AQUI por el correo exacto de tu cuenta.
+5. Busca en el proyecto la Project URL y la clave PUBLISHABLE o ANON pública.
+6. Pulsa “Conexión de base” en la parte superior,
+   pega la URL y la clave pública, guarda e inicia
+   sesión con una cuenta creada en Authentication.
+7. Verifica que diga “Base compartida” y, en tu cuenta, “Cuenta administradora”.
+8. Crea un diagnóstico. Ábrelo desde otro dispositivo con la misma cuenta y
+   comprueba la persistencia antes de empezar el levantamiento real.
+
+URL Y CLAVE EN TODOS LOS EQUIPOS
+Para que los técnicos solo ingresen correo y contraseña, puedes escribir URL y
+clave PÚBLICA en DEPLOY_CONFIG, cerca del inicio del script de index.html:
+const DEPLOY_CONFIG={url:'https://PROYECTO.supabase.co',key:'CLAVE_PUBLICA'};
+Vuelve a subir ese HTML a Tiiny. La clave pública está diseñada para el navegador;
+los permisos reales se aplican en Supabase mediante RLS y el inicio de sesión.
+Nunca usar service_role ni sb_secret. La app rechaza estas claves.
+
+PERMISOS
+- Sin sesión: no se puede leer ni modificar la base compartida.
+- Técnico: registra, ve, actualiza y elimina sus propios diagnósticos.
+- Administrador: ve y administra los registros de todo el equipo.
+- Los usuarios no pueden convertirse en administradores desde la app.
+- Los permisos de administrador se asignan solo desde SQL Editor.
+- El código de finca + año es único para todo el equipo.
+- La actualización incluye control de revisión para detectar edición simultánea.
+- La app usa Internet para la base compartida. No hay sincronización automática
+  de datos sin conexión; el modo local es independiente.
+
+CONSULTAS TERRITORIALES
+- Año de referencia obligatorio en el panel: no suma varios años de una finca.
+- Todo Panamá: suma la muestra visible para la cuenta, no el inventario nacional.
+- Provincia/comarca: filtra la muestra y permite agrupar por distrito.
+- Distrito: muestra sus fichas y totales.
+- Búsqueda por nombre, productor o código; la descarga de selección respeta filtros.
+- Respaldo JSON incluye TODOS los registros visibles en el modo actual y sus
+  parámetros, sin contraseñas ni configuración de conexión. Importación solo local.
+- Usa Actualizar para ver nuevos registros del equipo; no es una vista en tiempo real.
+- La lectura de la base se pagina de 500 en 500 para evitar truncar a 1000 fincas.
+
+GEOGRAFÍA
+Se incluyen listas de las diez provincias y las comarcas Guna Yala, Emberá-Wounaan,
+Ngäbe-Buglé y Naso Tjër Di; los distritos dependen de la selección. En Guna Yala y
+Naso se usa “sin distrito” como agrupación operativa, no como distrito legal.
+Guna de Madungandí y Guna de Wargandí pueden identificarse en comunidad dentro
+de Chepo y Pinogana, respectivamente. No se incluye catálogo de corregimientos.
+Referencia de actualización territorial: Instituto Geográfico Nacional Tommy
+Guardia, División Política Administrativa 2025. Revisar el catálogo si se crean
+nuevas unidades antes de un siguiente levantamiento.
+https://ignpanama.anati.gob.pa/index.php/25-cdepartamento/cdepartamentocartografia/268-division-politica-administrativa
+
+PARÁMETROS CONSERVADOS DEL EXCEL DE ROQUE
+Se conserva el método operativo solicitado; no se sustituye por otro inventario.
+- GWP AR5: metano 28; óxido nitroso 265.
+- Factores entéricos, de estiércol, UG y excreción N por categoría del Excel.
+- PRP: factor 0,01; conversión 44/28; multiplicador total 1,25.
+- Insumos: N sintético neto; abono con 2 % N; residuos con 1 % N; EF 0,01.
+- Diésel: 10,21 kg CO2/galón. Gasolina: 8,89 kg CO2/galón.
+- Cobertura arbórea: 40 % del área de pastos y forrajes por acuerdo del equipo.
+- Cercas iniciales: 60 m/ha total (como Excel), con opción de escribir la estimación.
+- Tasas de captura: corredor y bosque 5; SSPi 4,5; banco 3,5; árboles 1,2;
+  cercas 1,5 por km; suelo bueno 1,2; regular 0,6; rastrojos 2.
+- Suelo y biomasa se presentan por separado y no se suman áreas con kilómetros.
+- Los factores se guardan dentro de cada diagnóstico. Cambiarlos en Parámetros
+  afecta a nuevos registros EN ESE NAVEGADOR. Los antiguos conservan su copia.
+  Para recalcular una ficha antigua, abre Editar factores y referencias > Parámetros de este
+  registro > Aplicar parámetros vigentes y después Guarda el diagnóstico.
+- La edición de parámetros NO se distribuye automáticamente al equipo. Para
+  acordar una nueva versión común, se debe distribuir un HTML actualizado.
+- Las capturas se identifican como estimaciones del equipo.
+- Huella por litro pendiente de definir asignación leche/carne; no se inventa
+  producción anual a partir de una visita.
+- Campos numéricos vacíos se guardan como cero según el criterio del equipo.
+  Los datos antiguos con estado sin dato se conservan hasta volver a guardarlos.
+- No incluye electricidad, cambios de uso del suelo, CO2 de cal/urea ni un módulo
+  nuevo de N2O de estiércol almacenado: el alcance corresponde al Excel entregado.
+
+CONTROL CON ROQUE (EJEMPLO OPCIONAL, SOLO LOCAL)
+75 bovinos + 2 équidos = 77 animales.
+58,3 UG bovinas + 2,4 UG de équidos = 60,7 UG totales.
+CH4 entérico: 106,344 t CO2e/año.
+CH4 estiércol: 3,10184 t CO2e/año.
+N2O pasturas: 13,950357142857 t CO2e/año.
+Brutas: 123,396197142857 t CO2e/año.
+Capturas: 77,52 t CO2/año.
+Balance: 45,876197142857 t CO2e/año.
+Neto/ha: 0,882234560440 t CO2e/ha/año.
+El ejemplo conserva los valores del cálculo individual, incluyendo el banco de
+1 ha y las 10 ha de rastrojos. No incluye cédula ni teléfono del productor.
+El año 2026 se utiliza solo para organizar la prueba; confirmar el período real.
+
+VALIDACIÓN ANTES DE PRODUCCIÓN
+La entrega incluye pruebas de lógica del cálculo con Roque, guardado y edición
+local, filtros y operaciones de conexión contra un servidor simulado. El motor
+de navegador no pudo ejecutarse en este entorno: queda pendiente la revisión
+visual en celular y PC. El SQL y los permisos RLS deben ejecutarse y probarse
+con tu proyecto: no hay una base externa creada en esta entrega. La app ya tiene las operaciones de conexión, sesión, lectura, escritura,
+edición y eliminación preparadas. Los fallos de red se muestran en pantalla.
+
+DOCUMENTACIÓN DE PROVEEDORES
+https://helpdesk.tiiny.host/en/article/how-to-upload-a-html-file-to-a-website-311t51/
+https://supabase.com/docs/guides/database/postgres/row-level-security
+https://supabase.com/docs/reference/javascript/auth-signinwithpassword
