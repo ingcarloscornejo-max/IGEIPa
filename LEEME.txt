@@ -1,3 +1,13 @@
+GEI PANAMÁ · v2.3 · CÉDULA EN RENGLÓN SEPARADO
+La cédula aparece primero, sola y fuera de la cuadrícula de datos generales.
+Cédula nueva: continúa completando el productor y la finca sin bloqueo.
+Cédula registrada: se completa el productor y, junto al nombre de la finca,
+aparece una lista de sus fincas. Selecciona una para completar hasta hectáreas
+totales. El resto del diagnóstico y la consulta inferior siguen iguales.
+Tras subir estos archivos al repositorio, espera el despliegue y recarga
+con Ctrl+F5. Comprueba que la esquina superior muestre v2.3.
+No necesitas ejecutar SQL ni cambiar Supabase.
+
 GEI PANAMÁ · v2.2 · CÉDULA PRIMERO Y DATOS GENERALES AUTOMÁTICOS
 1. Escribe primero la cédula: se busca en los registros de la base activa.
 2. Si existe, aparece el nombre y una lista de sus fincas, sin repetir años.
