@@ -1,0 +1,5 @@
+GEI Panama - ajustes v2.5
+1. Los estados de pasto mejorado, naturalizado, corte y cana se muestran solo si su superficie declarada supera cero hectareas. Los estados de tipos ausentes se consideran Sin registrar en el calculo.
+2. Ver emisiones ahora incluye un analisis explicativo por finca basado en sus fuentes, capturas y balance neto.
+3. No se modificaron los factores de emision, el modelo de calculo, las tablas SQL ni las conexiones a la base.
+Antes de actualizar, conserve un respaldo de los registros. Sustituya los archivos del sitio completo, no los datos de Supabase.
