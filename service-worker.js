@@ -1,5 +1,5 @@
 'use strict';
-const GEI_ASSET_CACHE='gei-brand-v2.10';
+const GEI_ASSET_CACHE='gei-brand-v2.11';
 const GEI_ASSETS=['logo-gei.webp','icon-192.png','icon-512.png','apple-touch-icon.png','favicon.png'];
 const GEI_URLS=GEI_ASSETS.map(p=>new URL(p,self.registration.scope).href);
 self.addEventListener('install',event=>{

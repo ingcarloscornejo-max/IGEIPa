@@ -1,3 +1,14 @@
+GEI PANAMÁ · v2.11 · TOTAL DE ANIMALES DEL INVENTARIO PRINCIPAL
+Animales totales suma solo las once categorías del inventario principal,
+desde vacas hasta équidos en pastoreo. No incluye porcinos, caprinos, ovinos
+ni aves de la sección Otras especies.
+El conteo corregido se muestra en los resultados, lista, historial y CSV.
+Todas las especies conservan sus registros y sus cálculos de emisiones.
+Esta corrección solo cambia el conteo de animales; conserva las UG y demás
+cálculos existentes. Los diagnósticos ya guardados se consultan con el conteo
+corregido, sin volver a ingresarlos ni modificar Supabase.
+Publica los archivos en GitHub, recarga con Ctrl+F5 y comprueba v2.11.
+
 GEI PANAMÁ · v2.10 · CARGA GANADERA POR HECTÁREAS DE PASTO
 En Ver emisiones se muestran animales, UG, superficie total de la finca,
 superficie total de pastos y carga ganadera calculada con UG / ha de pasto.
