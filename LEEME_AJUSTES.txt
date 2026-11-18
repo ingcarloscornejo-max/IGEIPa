@@ -1,3 +1,13 @@
+GEI PANAMÁ · v2.10 · CARGA GANADERA POR HECTÁREAS DE PASTO
+En Ver emisiones se muestran animales, UG, superficie total de la finca,
+superficie total de pastos y carga ganadera calculada con UG / ha de pasto.
+Se utiliza el campo Superficie total de pastos del diagnóstico consultado.
+Si no hay ha de pasto o son cero, la carga aparece como guion.
+Se elimina el comentario de la división debajo de la carga.
+Se mantienen emisiones, desglose de áreas y ventana ampliable con barra interna.
+Publica los archivos en GitHub y recarga con Ctrl+F5. Comprueba v2.10.
+No requiere cambios en Supabase.
+
 GEI PANAMÁ · v2.9 · DESPLAZAMIENTO INTERNO DE RESULTADOS
 La ventana de resultados tiene su propia barra vertical a la derecha del
 contenido. Se desplaza con la barra, rueda del ratón o gesto táctil.
