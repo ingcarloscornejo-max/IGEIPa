@@ -1,3 +1,13 @@
+GEI PANAMÁ · v2.8 · VENTANA DE RESULTADOS AMPLIABLE
+Ver emisiones abre una ventana pequeña. Pulsa Pantalla completa para ocupar
+toda la ventana de la app; Ventana pequeña restaura el tamaño inicial.
+Cerrar (arriba), Cerrar y volver al registro (abajo) y Escape cierran los
+resultados y llevan al formulario principal, sin borrar la captura pendiente.
+Al volver a abrir resultados, la ventana comienza en tamaño pequeño.
+Se conservan carga UG/ha, desglose de superficies, impresión y demás ajustes.
+Publica los archivos en GitHub y recarga con Ctrl+F5. Comprueba v2.8.
+No necesitas cambios en Supabase.
+
 GEI PANAMÁ · v2.7 · DESGLOSE DE HECTÁREAS EN VER EMISIONES
 Debajo de las capturas aparece la tabla Distribución de la superficie registrada.
 Se muestran las 12 categorías capturadas, incluso las que registran 0 ha,
