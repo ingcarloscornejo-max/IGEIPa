@@ -1,3 +1,15 @@
+GEI PANAMÁ · v2.9 · DESPLAZAMIENTO INTERNO DE RESULTADOS
+La ventana de resultados tiene su propia barra vertical a la derecha del
+contenido. Se desplaza con la barra, rueda del ratón o gesto táctil.
+El encabezado y los botones inferiores permanecen visibles; la página de
+atrás queda inmóvil mientras los resultados están abiertos.
+Pantalla completa amplía los resultados y luego desaparece ese botón.
+Cerrar vuelve al registro principal, conservando la captura pendiente.
+Al abrir otra finca, los resultados vuelven a tamaño pequeño y al inicio.
+Se conserva la impresión completa de los resultados y todos los ajustes previos.
+Publica los archivos en GitHub y recarga con Ctrl+F5. Comprueba v2.9.
+No requiere cambios en Supabase.
+
 GEI PANAMÁ · v2.8 · VENTANA DE RESULTADOS AMPLIABLE
 Ver emisiones abre una ventana pequeña. Pulsa Pantalla completa para ocupar
 toda la ventana de la app; Ventana pequeña restaura el tamaño inicial.
