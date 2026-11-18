@@ -1,3 +1,14 @@
+GEI PANAMÁ · v2.6 · CARGA GANADERA EN VER EMISIONES
+En la identificación superior de cada finca se conserva animales, UG y ha,
+y se añade Carga ganadera (UG/ha): UG divididas entre hectáreas TOTALES.
+El resultado usa dos decimales y corresponde al diagnóstico/año consultado.
+Si la superficie es cero o no está registrada, aparece un guion y un aviso.
+No se modifica el cálculo de emisiones ni la base de datos.
+Se conservan todos los ajustes de la versión v2.5 Pastos y Análisis.
+Sube los archivos extraídos al mismo repositorio. Al terminar el despliegue,
+recarga con Ctrl+F5 y verifica v2.6. No necesitas ejecutar SQL en Supabase.
+
+AJUSTES ANTERIORES (v2.5):
 GEI Panama - ajustes v2.5
 1. Los estados de pasto mejorado, naturalizado, corte y cana se muestran solo si su superficie declarada supera cero hectareas. Los estados de tipos ausentes se consideran Sin registrar en el calculo.
 2. Ver emisiones ahora incluye un analisis explicativo por finca basado en sus fuentes, capturas y balance neto.
