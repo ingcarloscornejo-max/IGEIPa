@@ -1,3 +1,13 @@
+GEI PANAMÁ · v2.7 · DESGLOSE DE HECTÁREAS EN VER EMISIONES
+Debajo de las capturas aparece la tabla Distribución de la superficie registrada.
+Se muestran las 12 categorías capturadas, incluso las que registran 0 ha,
+en el orden del diagnóstico. Incluye suma de categorías y superficie total.
+La información corresponde a la finca y al año consultado, no al formulario abierto.
+Los registros antiguos sin desglose muestran Sin dato registrado, sin inventar áreas.
+Se conservan carga ganadera UG/ha, ajustes de pastos, análisis y demás funciones.
+Reemplaza los archivos en GitHub y recarga con Ctrl+F5. Comprueba v2.7.
+No se requiere ejecutar SQL ni cambiar Supabase.
+
 GEI PANAMÁ · v2.6 · CARGA GANADERA EN VER EMISIONES
 En la identificación superior de cada finca se conserva animales, UG y ha,
 y se añade Carga ganadera (UG/ha): UG divididas entre hectáreas TOTALES.
