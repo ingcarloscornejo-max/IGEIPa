@@ -1,3 +1,22 @@
+GEI PANAMÁ · v2.14 · RECUADROS Y ANÁLISIS POR FECHA
+
+Se recupera la presentación de emisiones brutas, capturas, balance neto y
+neto por hectárea en recuadros con color. Cada análisis tiene una tarjeta
+con su fecha, inventario, carga y variación frente al diagnóstico anterior.
+Debajo de los recuadros vuelve el análisis explicativo para el productor:
+balance, fuente dominante, principal captura y recomendaciones de manejo.
+Las tarjetas avanzan hacia la derecha, con botones Fecha anterior y Fecha
+siguiente. Se mantienen separadas las fincas del mismo productor.
+Más abajo permanece el desglose comparativo completo de todas las fechas,
+con fuentes de emisión, manejo del estiércol, animales y hectáreas.
+Ver diagnóstico completo abre la ficha individual con su explicación.
+Se conservan una fila por productor, CSV por fecha, factores de estiércol,
+pantalla completa, Cerrar hacia el registro y datos pendientes sin borrar.
+Esta actualización solo cambia la presentación: no altera cálculos ni datos.
+
+Extrae y reemplaza los archivos en GitHub. Tras publicarse, Ctrl+F5 y v2.14.
+No se requiere otro SQL si ya aplicaste la actualización por fecha de v2.12.
+
 GEI PANAMÁ · v2.13 · ESTIÉRCOL Y COMPARACIÓN POR PRODUCTOR
 
 INSTALACIÓN
