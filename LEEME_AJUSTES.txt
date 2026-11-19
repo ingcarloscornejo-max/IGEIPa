@@ -1,3 +1,20 @@
+GEI PANAMÁ · v2.15 · PRESENTACIÓN DE UN SOLO ANÁLISIS
+
+Cuando una finca tiene solo un análisis, se abre una tarjeta individual:
+- Fecha y datos de identificación en recuadros.
+- Cuatro recuadros de resultados en distribución 2 × 2: emisiones brutas,
+  capturas, balance neto y neto por hectárea.
+- El análisis explicativo completo y las recomendaciones debajo.
+- Inventario, carga por hectáreas de pasto y manejo del estiércol.
+- Emisiones por fuente, capturas y todas las hectáreas registradas.
+La misma presentación se aplica al abrir el detalle de cualquier fecha.
+Ver datos registrados muestra además todos los datos capturados.
+Con dos o más análisis se conserva la comparación visual por fechas.
+Cálculos, factores, registros, CSV y SQL permanecen iguales.
+
+Reemplaza los archivos en GitHub; después de publicarse, Ctrl+F5 y v2.15.
+No necesitas modificar Supabase.
+
 GEI PANAMÁ · v2.14 · RECUADROS Y ANÁLISIS POR FECHA
 
 Se recupera la presentación de emisiones brutas, capturas, balance neto y
