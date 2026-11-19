@@ -1,69 +1,31 @@
-GEI PANAMÁ · v2.11 · TOTAL DE ANIMALES DEL INVENTARIO PRINCIPAL
-Animales totales suma solo las once categorías del inventario principal,
-desde vacas hasta équidos en pastoreo. No incluye porcinos, caprinos, ovinos
-ni aves de la sección Otras especies.
-El conteo corregido se muestra en los resultados, lista, historial y CSV.
-Todas las especies conservan sus registros y sus cálculos de emisiones.
-Esta corrección solo cambia el conteo de animales; conserva las UG y demás
-cálculos existentes. Los diagnósticos ya guardados se consultan con el conteo
-corregido, sin volver a ingresarlos ni modificar Supabase.
-Publica los archivos en GitHub, recarga con Ctrl+F5 y comprueba v2.11.
+GEI PANAMÁ · v2.12 · VARIOS ANÁLISIS POR FECHA
 
-GEI PANAMÁ · v2.10 · CARGA GANADERA POR HECTÁREAS DE PASTO
-En Ver emisiones se muestran animales, UG, superficie total de la finca,
-superficie total de pastos y carga ganadera calculada con UG / ha de pasto.
-Se utiliza el campo Superficie total de pastos del diagnóstico consultado.
-Si no hay ha de pasto o son cero, la carga aparece como guion.
-Se elimina el comentario de la división debajo de la carga.
-Se mantienen emisiones, desglose de áreas y ventana ampliable con barra interna.
-Publica los archivos en GitHub y recarga con Ctrl+F5. Comprueba v2.10.
-No requiere cambios en Supabase.
+IMPORTANTE: ESTA VERSIÓN SÍ REQUIERE UNA ACTUALIZACIÓN EN SUPABASE.
+1. Abre actualizar_analisis_por_fecha.sql con Bloc de notas y copia su contenido.
+2. En tu proyecto de Supabase: SQL Editor > New query, pega el contenido y Run.
+   Debe terminar con Success / No rows returned. Ejecuta solo este archivo;
+   NO vuelvas a ejecutar base_de_datos.sql en tu proyecto existente.
+   Si avisa de una finca y fecha repetidas de versiones anteriores, comparte
+   ese mensaje para revisar las fechas reales: el proceso no habrá borrado datos.
+3. Extrae y sube los archivos de la app al mismo repositorio de GitHub.
+4. Tras terminar el despliegue, recarga con Ctrl+F5 y comprueba v2.12.
 
-GEI PANAMÁ · v2.9 · DESPLAZAMIENTO INTERNO DE RESULTADOS
-La ventana de resultados tiene su propia barra vertical a la derecha del
-contenido. Se desplaza con la barra, rueda del ratón o gesto táctil.
-El encabezado y los botones inferiores permanecen visibles; la página de
-atrás queda inmóvil mientras los resultados están abiertos.
-Pantalla completa amplía los resultados y luego desaparece ese botón.
-Cerrar vuelve al registro principal, conservando la captura pendiente.
-Al abrir otra finca, los resultados vuelven a tamaño pequeño y al inicio.
-Se conserva la impresión completa de los resultados y todos los ajustes previos.
-Publica los archivos en GitHub y recarga con Ctrl+F5. Comprueba v2.9.
-No requiere cambios en Supabase.
+FUNCIONAMIENTO
+- En Ver emisiones > Nuevo análisis de esta finca, elige la fecha que necesites.
+- Puedes registrar análisis cada 3 meses, 6 meses o cualquier intervalo.
+- Una finca no puede tener dos análisis con exactamente la misma fecha.
+- Se conserva el código de finca y cada diagnóstico anterior con sus factores.
+- El año del nuevo análisis se toma de la fecha elegida; no se fuerza otro año.
+- La consulta por cédula y el historial muestran todas las fechas en orden.
+- Las comparaciones usan el análisis anterior por fecha y el CSV incluye esa fecha.
+- En el consolidado territorial se utiliza el último análisis de cada finca
+  dentro del año/selección, para no sumar varias veces una misma finca.
+  La lista y las exportaciones conservan todos los análisis individuales.
+- Los resultados siguen expresados como estimaciones anuales (t CO2e/año).
+  Registrar cada trimestre no convierte el resultado en emisiones trimestrales.
+- Los registros históricos sin fecha no reciben una fecha inventada. Para guardar
+  una edición en la app, indica la fecha correcta del diagnóstico.
+- Se mantienen conteo principal de animales, UG/ha de pastos, desglose de áreas,
+  ventana ampliable, desplazamiento interno y limpieza después de guardar.
 
-GEI PANAMÁ · v2.8 · VENTANA DE RESULTADOS AMPLIABLE
-Ver emisiones abre una ventana pequeña. Pulsa Pantalla completa para ocupar
-toda la ventana de la app; Ventana pequeña restaura el tamaño inicial.
-Cerrar (arriba), Cerrar y volver al registro (abajo) y Escape cierran los
-resultados y llevan al formulario principal, sin borrar la captura pendiente.
-Al volver a abrir resultados, la ventana comienza en tamaño pequeño.
-Se conservan carga UG/ha, desglose de superficies, impresión y demás ajustes.
-Publica los archivos en GitHub y recarga con Ctrl+F5. Comprueba v2.8.
-No necesitas cambios en Supabase.
-
-GEI PANAMÁ · v2.7 · DESGLOSE DE HECTÁREAS EN VER EMISIONES
-Debajo de las capturas aparece la tabla Distribución de la superficie registrada.
-Se muestran las 12 categorías capturadas, incluso las que registran 0 ha,
-en el orden del diagnóstico. Incluye suma de categorías y superficie total.
-La información corresponde a la finca y al año consultado, no al formulario abierto.
-Los registros antiguos sin desglose muestran Sin dato registrado, sin inventar áreas.
-Se conservan carga ganadera UG/ha, ajustes de pastos, análisis y demás funciones.
-Reemplaza los archivos en GitHub y recarga con Ctrl+F5. Comprueba v2.7.
-No se requiere ejecutar SQL ni cambiar Supabase.
-
-GEI PANAMÁ · v2.6 · CARGA GANADERA EN VER EMISIONES
-En la identificación superior de cada finca se conserva animales, UG y ha,
-y se añade Carga ganadera (UG/ha): UG divididas entre hectáreas TOTALES.
-El resultado usa dos decimales y corresponde al diagnóstico/año consultado.
-Si la superficie es cero o no está registrada, aparece un guion y un aviso.
-No se modifica el cálculo de emisiones ni la base de datos.
-Se conservan todos los ajustes de la versión v2.5 Pastos y Análisis.
-Sube los archivos extraídos al mismo repositorio. Al terminar el despliegue,
-recarga con Ctrl+F5 y verifica v2.6. No necesitas ejecutar SQL en Supabase.
-
-AJUSTES ANTERIORES (v2.5):
-GEI Panama - ajustes v2.5
-1. Los estados de pasto mejorado, naturalizado, corte y cana se muestran solo si su superficie declarada supera cero hectareas. Los estados de tipos ausentes se consideran Sin registrar en el calculo.
-2. Ver emisiones ahora incluye un analisis explicativo por finca basado en sus fuentes, capturas y balance neto.
-3. No se modificaron los factores de emision, el modelo de calculo, las tablas SQL ni las conexiones a la base.
-Antes de actualizar, conserve un respaldo de los registros. Sustituya los archivos del sitio completo, no los datos de Supabase.
+El SQL no borra datos ni cambia permisos y no toca las tablas de BioMarket.

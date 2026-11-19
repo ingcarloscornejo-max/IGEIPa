@@ -39,7 +39,9 @@ create table public.farm_diagnostics (
   ),
   constraint payload_size check (octet_length(payload::text) < 200000)
 );
-create unique index one_farm_per_year on public.farm_diagnostics(lower(trim(code)), reference_year);
+create unique index if not exists one_farm_per_date
+  on public.farm_diagnostics(lower(trim(code)), (nullif(btrim(payload->>'visit'), '')))
+  where nullif(btrim(payload->>'visit'), '') is not null;
 create index diagnostics_territory on public.farm_diagnostics(reference_year, province, district);
 create index diagnostics_owner on public.farm_diagnostics(owner_id);
 create index diagnostics_updated on public.farm_diagnostics(updated_at desc, id);
@@ -89,8 +91,40 @@ create policy "Eliminar propios o administrador" on public.farm_diagnostics
     or exists (select 1 from public.gei_admins where user_id = (select auth.uid()))
   );
 
+-- Fechas nuevas obligatorias y válidas. Los registros antiguos sin fecha
+-- permanecen intactos y pueden conservar esa condición al editarlos.
+create or replace function public.gei_check_analysis_date() returns trigger
+language plpgsql set search_path = '' as $$
+declare
+  visit_text text;
+  parsed_date date;
+begin
+  visit_text := nullif(btrim(NEW.payload->>'visit'), '');
+  if visit_text is null then
+    if TG_OP = 'INSERT' then
+      raise exception 'Indica la fecha del análisis antes de guardar';
+    elsif nullif(btrim(OLD.payload->>'visit'), '') is not null then
+      raise exception 'No se puede quitar la fecha de un análisis registrado';
+    end if;
+    return NEW;
+  end if;
+  if visit_text !~ '^[0-9]{4}-[0-9]{2}-[0-9]{2}$' then
+    raise exception 'La fecha del análisis debe tener formato AAAA-MM-DD';
+  end if;
+  parsed_date := visit_text::date;
+  if pg_catalog.to_char(parsed_date, 'YYYY-MM-DD') <> visit_text then
+    raise exception 'La fecha del análisis no es válida';
+  end if;
+  return NEW;
+end;
+$$;
+drop trigger if exists gei_analysis_date on public.farm_diagnostics;
+create trigger gei_analysis_date before insert or update of payload
+  on public.farm_diagnostics for each row
+  execute function public.gei_check_analysis_date();
+
 comment on table public.farm_diagnostics is
-  'Un diagnóstico por código de finca y año. payload conserva entradas y factores de cálculo. Cada técnico ve lo propio; administradores ven el equipo. RLS obligatorio.';
+  'Un diagnóstico por código de finca y fecha. Se conservan análisis anteriores y factores. Consolidado por último análisis de cada finca. RLS obligatorio.';
 commit;
 
 -- DESPUÉS de crear tu cuenta en Authentication > Users, ejecuta aparte:
