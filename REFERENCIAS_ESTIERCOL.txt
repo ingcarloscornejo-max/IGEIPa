@@ -1,0 +1,66 @@
+GEI PANAMÁ v2.13 · Referencias y supuestos del módulo de estiércol
+
+Referencia primaria: IPCC, Refinamiento 2019, Volumen 4, Capítulo 10:
+https://www.ipcc-nggip.iges.or.jp/public/2019rf/pdf/4_Volume4/19R_V4_Ch10_Livestock.pdf
+Tablas 10.13a (VS), 10.16a (B0), 10.17 (MCF), 10.21 (EF3), 10.22 (pérdidas N), 10A.5 (pesos).
+Son valores de partida para una estimación, no FE específicos validados para
+cada finca de Panamá ni una implementación completa de todas las rutas IPCC.
+
+CH4
+VS diarios = peso medio (kg) / 1000 × tasa VS (kg/1000 kg peso/día).
+CH4 (kg/año) = cabezas × VS diarios × 365 × 0.67 ×
+ [(1-fracción recolectada) × B0_PRP × MCF_PRP
+  + fracción recolectada × B0_categoría × MCF_sistema].
+B0_PRP = 0.19 para todas las categorías, según tabla 10.16a.
+B0 de estiércol manejado, perfil de baja productividad de otras regiones:
+bovinos, caprinos y ovinos 0.13; porcinos 0.29; équidos 0.26; aves 0.24.
+Tasas VS iniciales, promedio América Latina cuando corresponde:
+vacas con cría 7.9 (aproximación de vacas lecheras), otras categorías bovinas
+8.5, équidos 7.2, porcinos 5, caprinos 10.4, ovinos 8.3, aves 13.5.
+Pesos bovinos se APROXIMAN con 450 kg/UG según los coeficientes actuales:
+no son pesos medidos ni pesos por categoría publicados por IPCC.
+Otros pesos iniciales: équidos 238 kg, porcinos 65 kg, caprinos 33 kg,
+ovinos 31 kg, aves 1.1 kg. Sustituir por promedios representativos del año.
+Modificar el peso del módulo de estiércol NO cambia los coeficientes UG.
+
+MCF: clima cálido. El campo Húmeda se asimila a tropical wet; Semihúmeda a
+tropical moist; Seca a tropical dry. No se modela clima de montaña.
+Depósito PRP 0.47 %, corral seco 2 %, montón sólido 5 %, compostaje pasivo
+2.5 %, aplicación diaria 1 %, laguna descubierta 80 %.
+Purines sin costra, 1 mes: húmeda 38 %, semihúmeda 36 %, seca 42 %.
+No extender el factor de 1 mes a otro tiempo de almacenamiento sin revisarlo.
+
+N2O
+Se conserva la excreción anual N de los factores por categoría de cada
+análisis (no se sustituye por una tasa nueva sin datos del diagnóstico).
+N en pasturas = cabezas × Nex × fracción no recolectada.
+N manejado = cabezas × Nex × fracción recolectada.
+PRP usa el FE_PRP del diagnóstico. Almacenamiento usa EF3:
+corral seco 0.02, montón sólido 0.01, compostaje pasivo 0.01;
+purines sin costra y laguna 0; aplicación diaria 0 en almacenamiento.
+Conversión: N × FE × (44/28) × GWP_N2O / 1000.
+Para el N2O del estiércol recolectado se calculan por separado:
+N2O-N = N manejado × [EF3 + FracGas × EF4 + FracLeach × EF5].
+EF4 agregado = 0.010; EF5 = 0.011, capítulo 11 tabla 11.3:
+https://www.ipcc-nggip.iges.or.jp/public/2019rf/pdf/4_Volume4/19R_V4_Ch11_Soils_N2O_CO2.pdf
+Las fracciones FracGas y FracLeach por sistema y especie se toman de la
+tabla 10.22 (2019); se conservan en el diagnóstico y son editables.
+Así, una laguna con EF3 directo cero conserva el N2O indirecto por pérdidas N.
+No se aplica el multiplicador 1.25 otra vez al N2O del estiércol recolectado.
+PRP mantiene el FE y el multiplicador indirecto de la metodología anterior
+para conservar los supuestos del equipo sobre deyecciones en pasturas.
+Corral seco en aves no tiene valor por defecto aplicable: no se permite
+usar esa combinación. Para aves en alojamiento con/sin cama se necesita
+clasificar el manejo real y verificar los factores antes de guardar.
+No se modelan recuperación de CH4, fugas de biodigestores ni etapas en serie.
+La aplicación posterior de abono al suelo corresponde al módulo de insumos;
+se debe registrar la cantidad efectivamente aplicada, no el total excretado.
+
+CONSERVACIÓN DE SERIES HISTÓRICAS
+Sin un sistema especificado, permanecen los FE CH4/cabeza y las reglas PRP
+originales. Seleccionar un sistema activa el modelo por VS/B0/MCF para ese
+grupo; otros grupos sin clasificación conservan el método anterior.
+Una comparación entre ambos métodos indica Factores diferentes. La mejora
+metodológica no debe interpretarse como un cambio medido en la finca.
+Se mantienen todas las categorías, incluidas otras especies, en las emisiones;
+Animales totales conserva solo el inventario principal, como en v2.11.

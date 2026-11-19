@@ -1,31 +1,44 @@
-GEI PANAMÁ · v2.12 · VARIOS ANÁLISIS POR FECHA
+GEI PANAMÁ · v2.13 · ESTIÉRCOL Y COMPARACIÓN POR PRODUCTOR
 
-IMPORTANTE: ESTA VERSIÓN SÍ REQUIERE UNA ACTUALIZACIÓN EN SUPABASE.
-1. Abre actualizar_analisis_por_fecha.sql con Bloc de notas y copia su contenido.
-2. En tu proyecto de Supabase: SQL Editor > New query, pega el contenido y Run.
-   Debe terminar con Success / No rows returned. Ejecuta solo este archivo;
-   NO vuelvas a ejecutar base_de_datos.sql en tu proyecto existente.
-   Si avisa de una finca y fecha repetidas de versiones anteriores, comparte
-   ese mensaje para revisar las fechas reales: el proceso no habrá borrado datos.
-3. Extrae y sube los archivos de la app al mismo repositorio de GitHub.
-4. Tras terminar el despliegue, recarga con Ctrl+F5 y comprueba v2.12.
+INSTALACIÓN
+Extrae y reemplaza los archivos en el mismo repositorio de GitHub. Tras el
+despliegue, recarga con Ctrl+F5 y comprueba v2.13. No hay un SQL nuevo:
+si ya aplicaste la actualización por fecha de v2.12, Supabase está preparado.
 
-FUNCIONAMIENTO
-- En Ver emisiones > Nuevo análisis de esta finca, elige la fecha que necesites.
-- Puedes registrar análisis cada 3 meses, 6 meses o cualquier intervalo.
-- Una finca no puede tener dos análisis con exactamente la misma fecha.
-- Se conserva el código de finca y cada diagnóstico anterior con sus factores.
-- El año del nuevo análisis se toma de la fecha elegida; no se fuerza otro año.
-- La consulta por cédula y el historial muestran todas las fechas en orden.
-- Las comparaciones usan el análisis anterior por fecha y el CSV incluye esa fecha.
-- En el consolidado territorial se utiliza el último análisis de cada finca
-  dentro del año/selección, para no sumar varias veces una misma finca.
-  La lista y las exportaciones conservan todos los análisis individuales.
-- Los resultados siguen expresados como estimaciones anuales (t CO2e/año).
-  Registrar cada trimestre no convierte el resultado en emisiones trimestrales.
-- Los registros históricos sin fecha no reciben una fecha inventada. Para guardar
-  una edición en la app, indica la fecha correcta del diagnóstico.
-- Se mantienen conteo principal de animales, UG/ha de pastos, desglose de áreas,
-  ventana ampliable, desplazamiento interno y limpieza después de guardar.
+REGISTRO DEL MANEJO DE ESTIÉRCOL
+- Ahora hay una sección visible antes del responsable del levantamiento.
+- Registra por separado bovinos/équidos y otras especies.
+- Puedes seleccionar potrero, corral seco, montón sólido, compostaje en
+  hileras pasivas, aplicación diaria, purines sin costra (1 mes) o laguna.
+- El porcentaje indica qué parte ANUAL del estiércol pasa por ese sistema.
+  Ejemplo: 10 % recolectado en ordeño deja 90 % depositado en potrero.
+- Al seleccionar un sistema de recolección se muestra inicialmente 100 %:
+  sustitúyelo por la proporción real o estimada a partir del diagnóstico.
+- Sin información, conserva Sin especificar: no se inventa el manejo y se
+  mantienen los FE anteriores. Los análisis históricos no cambian solos.
+- La selección cambia CH4 por sistema; el N recolectado deja de contarse
+  como N depositado en pasturas. Se añade N2O del estiércol manejado.
+- Si luego se aplica como abono al suelo, registra también esa aplicación
+  en Abono orgánico aplicado: almacenamiento y aplicación son etapas distintas.
+- Si una categoría tiene excreción N igual a cero, el resultado lo advierte
+  cuando se modela su manejo; verifica ese factor antes de interpretar su N2O.
+- Pesos, VS, B0, MCF y EF3 están en Editar factores y referencias. Cada
+  diagnóstico conserva sus propios factores, porcentajes y observaciones.
 
-El SQL no borra datos ni cambia permisos y no toca las tablas de BioMarket.
+UNA FILA POR PRODUCTOR Y TODAS SUS FECHAS
+- La lista se agrupa por cédula (sin cédula se usa el nombre exacto).
+- El resumen usa el último análisis de cada finca dentro de la selección.
+- Ver emisiones abre todas las fechas y fincas del productor: una tabla
+  por finca, con fechas en columnas hacia la derecha e indicadores en filas.
+- Incluye emisiones por fuente, capturas, balance, manejo de estiércol,
+  animales y todas las categorías de hectáreas, incluidas las de cero.
+- Desde cada columna puedes ver el diagnóstico, editar, preparar otro
+  análisis o eliminar solo ese análisis. No se mezclan fincas diferentes.
+- La tabla tiene desplazamiento horizontal y vertical; encabezados y
+  nombres de indicadores se mantienen visibles. Pantalla completa y Cerrar
+  siguen disponibles. Cerrar vuelve al registro sin borrar la captura.
+- El CSV conserva una fila por finca y fecha, más el manejo registrado y
+  N2O del estiércol manejado. No se fusiona ni borra ningún diagnóstico.
+
+MÉTODO Y SUPUESTOS INICIALES
+Consulta REFERENCIAS_ESTIERCOL.txt para ecuaciones, valores y limitaciones.
