@@ -1,3 +1,11 @@
+GEI PANAMÁ · v2.17 · LECTOR EXCEL INTEGRADO
+
+El lector Excel y la plantilla descargable están integrados en index.html.
+Para actualizar una instalación v2.16 basta reemplazar index.html en GitHub.
+Después de publicarse, recarga con Ctrl+F5 y comprueba v2.17.
+La importación ya no depende de cargar los archivos JS de vendor por separado.
+No se cambian registros, factores, cálculos ni tablas de Supabase.
+
 GEI PANAMÁ · v2.16 · CARGA DE PLANILLA EXCEL
 
 Incluye Cargar planilla Excel y Plantilla_GEIPanama.xlsx. Una finca y una fecha
