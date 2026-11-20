@@ -1,0 +1,68 @@
+GEI PANAMÁ · v2.16 · CARGA DE PLANILLAS EXCEL
+
+ACTUALIZAR LA APP
+Descomprime el ZIP. Sube todos sus archivos y la carpeta vendor al repositorio
+de GitHub, en el mismo nivel de index.html. Conserva los nombres y las rutas.
+Espera que termine la publicación y recarga con Ctrl+F5. Debe aparecer v2.16.
+Esta actualización no necesita ejecutar SQL ni cambiar las tablas de Supabase.
+No borres los registros ni los datos del navegador para actualizar la app.
+
+USO
+1. Descarga Plantilla_GEIPanama.xlsx desde la app o usa la copia de este ZIP.
+2. Un archivo corresponde a UNA finca y UNA fecha de diagnóstico.
+3. Completa la columna Valor de la hoja Datos. Conserva las etiquetas, nombres
+   de hojas y el identificador GEI_DIAG_1. Los renglones siguen los campos de la app.
+4. En Fertilizantes, anota cada producto, kg totales aplicados durante el año
+   y porcentaje de nitrógeno. Si no hay productos reportados, deja las filas vacías.
+5. En la app, pulsa Cargar planilla Excel y selecciona el archivo .xlsx.
+6. Revisa los datos y los avisos. Pulsa Guardar finca para guardarlos en la base
+   que esté activa. Cargar el archivo por sí solo NO guarda ningún registro.
+
+TRABAJO CON DIAGNÓSTICOS
+Puedes enviar los diagnósticos para recibir esta plantilla completada. No se
+deben inventar cantidades: los datos no reportados quedan vacíos y se explican
+en Observaciones. La app avisa cuántos campos numéricos vacíos tomó como cero.
+La copia guardada conserva el nombre de la planilla y la lista de datos no
+reportados; esas dos columnas también se incluyen al final del CSV general.
+
+IDENTIFICACIÓN E HISTORIAL
+Registra la cédula como texto para conservar guiones y ceros iniciales.
+Si conoces el código de finca de la app, inclúyelo. Si lo dejas vacío, la app
+busca una coincidencia por cédula, finca, provincia y distrito. Sin cédula,
+busca por nombre del productor. Si no existe coincidencia, genera otro código.
+Para fincas con nombres iguales, especifica el código para evitar confusiones.
+Una finca existente conserva sus factores del último análisis; la planilla
+aporta el inventario y los demás datos del nuevo diagnóstico. No se copian
+las cantidades del diagnóstico anterior para completar datos faltantes.
+No se permite cargar de nuevo una fecha ya registrada para esa finca. Para
+corregir esa fecha, abre Editar diagnóstico. Las fechas nuevas se agregan al
+historial y se conserva una fila por productor en la lista de consulta.
+
+FORMATO DE LOS DATOS
+- Fecha: dd/mm/aaaa, aaaa-mm-dd o fecha de Excel. Año vacío = año de esa fecha.
+- Cantidades: números no negativos; cabezas de animales y mangas, enteros.
+- No escribas unidades dentro de los valores ni uses separadores de miles.
+- Hectáreas: la distribución no puede superar la superficie total.
+- La superficie total de pastos es un dato aparte: no se vuelve a sumar a la
+  distribución. Se utiliza para calcular UG/ha.
+- Fertilizantes: kg de PRODUCTO por año. Por ejemplo, el porcentaje N se
+  registra como número 46 o en una celda de Excel con formato 46 %.
+- No conviertas dosis por hectárea o por aplicación en totales sin conocer
+  área tratada, número de aplicaciones y período al que corresponde el dato.
+- Manejo del estiércol: elige el sistema y el porcentaje que se recolecta.
+  Para Potrero o Sin especificar, el porcentaje debe ser cero. En los otros
+  sistemas debe ser mayor que cero; el resto se considera depositado en potrero.
+- Sin información sobre estiércol, deja Sin especificar; no inventes el manejo.
+- Descanso rotacional: la app calcula (mangas − 1) × días de ocupación.
+- Cercas y árboles dispersos opcionales: vacío conserva la estimación de la
+  app; un cero escrito expresamente se respeta como cero.
+- El cálculo usa cantidades anuales. La fecha identifica cuándo se hizo el
+  diagnóstico; no convierte los resultados en emisiones trimestrales.
+- Guarda valores, no fórmulas. Si una celda tiene fórmula, pega como valores.
+
+COMPATIBILIDAD
+Admite esta plantilla en formato .xlsx, hasta 10 MB, sin contraseña ni macros.
+Incluye un lector local de XLSX: JSZip 3.10.1 y sax 1.6.1, con sus licencias
+en vendor. La lectura de la planilla ocurre dentro del navegador.
+Se conservan las tarjetas de resultados, análisis explicativo, comparación
+por fechas, CSV, reglas de superficies y guardado de la versión anterior.

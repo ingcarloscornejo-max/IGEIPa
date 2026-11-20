@@ -1,0 +1,944 @@
+{
+  "format": "GEI_DIAG_1",
+  "sheet": "Datos",
+  "fertilizerSheet": "Fertilizantes",
+  "fields": [
+    {
+      "key": "producerCedula",
+      "label": "Cédula del productor",
+      "kind": "text",
+      "section": "Generalidades",
+      "required": false,
+      "help": "Texto. Conserva guiones y ceros iniciales. Si no se reporta, deja vacío.",
+      "maxLength": 40
+    },
+    {
+      "key": "producer",
+      "label": "Nombre del productor",
+      "kind": "text",
+      "section": "Generalidades",
+      "required": true,
+      "help": "Nombre tal como aparece en el diagnóstico.",
+      "maxLength": 160
+    },
+    {
+      "key": "name",
+      "label": "Nombre de la finca",
+      "kind": "text",
+      "section": "Generalidades",
+      "required": true,
+      "help": "",
+      "maxLength": 160
+    },
+    {
+      "key": "code",
+      "label": "Código de la finca",
+      "kind": "text",
+      "section": "Generalidades",
+      "required": false,
+      "help": "Opcional. Si existe, usa el código de la app; vacío = buscar por cédula y finca o crear uno.",
+      "maxLength": 80
+    },
+    {
+      "key": "province",
+      "label": "Provincia / comarca",
+      "kind": "choice",
+      "section": "Generalidades",
+      "required": true,
+      "help": "Incluye Panamá Este y Comarca Ngäbe-Buglé.",
+      "maxLength": 160,
+      "choices": [
+        "Bocas del Toro",
+        "Coclé",
+        "Colón",
+        "Chiriquí",
+        "Darién",
+        "Herrera",
+        "Los Santos",
+        "Panamá",
+        "Panamá Este",
+        "Panamá Oeste",
+        "Veraguas",
+        "Comarca Ngäbe-Buglé"
+      ]
+    },
+    {
+      "key": "district",
+      "label": "Distrito",
+      "kind": "text",
+      "section": "Generalidades",
+      "required": true,
+      "help": "Debe pertenecer a la provincia seleccionada.",
+      "maxLength": 160
+    },
+    {
+      "key": "place",
+      "label": "Ubicación / comunidad",
+      "kind": "text",
+      "section": "Generalidades",
+      "required": false,
+      "help": "",
+      "maxLength": 160
+    },
+    {
+      "key": "visit",
+      "label": "Fecha del diagnóstico",
+      "kind": "date",
+      "section": "Generalidades",
+      "required": true,
+      "help": "Fecha real del diagnóstico; formato dd/mm/aaaa.",
+      "maxLength": 160
+    },
+    {
+      "key": "year",
+      "label": "Año de referencia",
+      "kind": "count",
+      "section": "Generalidades",
+      "required": false,
+      "help": "Opcional; vacío = año de la fecha del diagnóstico.",
+      "maxLength": 160
+    },
+    {
+      "key": "activity",
+      "label": "Actividad ganadera",
+      "kind": "choice",
+      "section": "Generalidades",
+      "required": false,
+      "help": "Si falta, la app usará Leche y lo indicará para revisión.",
+      "maxLength": 160,
+      "choices": [
+        "Leche",
+        "Cría",
+        "Doble propósito",
+        "Ceba",
+        "Mixta"
+      ],
+      "default": "Leche"
+    },
+    {
+      "key": "climate",
+      "label": "Condición climática",
+      "kind": "choice",
+      "section": "Generalidades",
+      "required": false,
+      "help": "Si falta, la app usará Semihúmeda y lo indicará para revisión.",
+      "maxLength": 160,
+      "choices": [
+        "Semihúmeda",
+        "Húmeda",
+        "Seca"
+      ],
+      "default": "Semihúmeda"
+    },
+    {
+      "key": "area",
+      "label": "Superficie total de la finca (ha)",
+      "kind": "number",
+      "section": "Generalidades",
+      "required": true,
+      "help": "Hectáreas totales; no debe ser menor que la suma de categorías.",
+      "maxLength": 160
+    },
+    {
+      "key": "pasture",
+      "label": "Superficie total de pastos (ha)",
+      "kind": "number",
+      "section": "Generalidades",
+      "required": false,
+      "help": "Se usa para UG/ha. No se suma otra vez a la distribución de superficies.",
+      "maxLength": 160
+    },
+    {
+      "key": "surface.natural",
+      "label": "Pasto naturalizado (ha)",
+      "kind": "number",
+      "section": "Distribución de superficies",
+      "required": false,
+      "help": "Hectáreas registradas; vacío se interpretará como cero.",
+      "maxLength": 160
+    },
+    {
+      "key": "surface.improved",
+      "label": "Pasto mejorado (ha)",
+      "kind": "number",
+      "section": "Distribución de superficies",
+      "required": false,
+      "help": "Hectáreas registradas; vacío se interpretará como cero.",
+      "maxLength": 160
+    },
+    {
+      "key": "surface.cut",
+      "label": "Pasto para corte (ha)",
+      "kind": "number",
+      "section": "Distribución de superficies",
+      "required": false,
+      "help": "Hectáreas registradas; vacío se interpretará como cero.",
+      "maxLength": 160
+    },
+    {
+      "key": "surface.cane",
+      "label": "Caña (ha)",
+      "kind": "number",
+      "section": "Distribución de superficies",
+      "required": false,
+      "help": "Hectáreas registradas; vacío se interpretará como cero.",
+      "maxLength": 160
+    },
+    {
+      "key": "surface.bank",
+      "label": "Banco de proteína (ha)",
+      "kind": "number",
+      "section": "Distribución de superficies",
+      "required": false,
+      "help": "Hectáreas registradas; vacío se interpretará como cero.",
+      "maxLength": 160
+    },
+    {
+      "key": "surface.ssp",
+      "label": "Silvopastoril intensivo (ha)",
+      "kind": "number",
+      "section": "Distribución de superficies",
+      "required": false,
+      "help": "Hectáreas registradas; vacío se interpretará como cero.",
+      "maxLength": 160
+    },
+    {
+      "key": "surface.forage",
+      "label": "Cultivo forrajero (ha)",
+      "kind": "number",
+      "section": "Distribución de superficies",
+      "required": false,
+      "help": "Hectáreas registradas; vacío se interpretará como cero.",
+      "maxLength": 160
+    },
+    {
+      "key": "surface.regrowth",
+      "label": "Rastrojos (ha)",
+      "kind": "number",
+      "section": "Distribución de superficies",
+      "required": false,
+      "help": "Hectáreas registradas; vacío se interpretará como cero.",
+      "maxLength": 160
+    },
+    {
+      "key": "surface.forest",
+      "label": "Reserva forestal (ha)",
+      "kind": "number",
+      "section": "Distribución de superficies",
+      "required": false,
+      "help": "Hectáreas registradas; vacío se interpretará como cero.",
+      "maxLength": 160
+    },
+    {
+      "key": "surface.river",
+      "label": "Corredor ribereño (ha)",
+      "kind": "number",
+      "section": "Distribución de superficies",
+      "required": false,
+      "help": "Hectáreas registradas; vacío se interpretará como cero.",
+      "maxLength": 160
+    },
+    {
+      "key": "surface.crops",
+      "label": "Cultivos agrícolas (ha)",
+      "kind": "number",
+      "section": "Distribución de superficies",
+      "required": false,
+      "help": "Hectáreas registradas; vacío se interpretará como cero.",
+      "maxLength": 160
+    },
+    {
+      "key": "surface.buildings",
+      "label": "Instalaciones (ha)",
+      "kind": "number",
+      "section": "Distribución de superficies",
+      "required": false,
+      "help": "Hectáreas registradas; vacío se interpretará como cero.",
+      "maxLength": 160
+    },
+    {
+      "key": "herd.cows",
+      "label": "Vacas con cría (cabezas)",
+      "kind": "count",
+      "section": "Inventario de animales",
+      "required": false,
+      "help": "Número de cabezas, entero no negativo.",
+      "maxLength": 160
+    },
+    {
+      "key": "herd.dry",
+      "label": "Vacas secas (cabezas)",
+      "kind": "count",
+      "section": "Inventario de animales",
+      "required": false,
+      "help": "Número de cabezas, entero no negativo.",
+      "maxLength": 160
+    },
+    {
+      "key": "herd.heifers",
+      "label": "Novillas (>2 años) (cabezas)",
+      "kind": "count",
+      "section": "Inventario de animales",
+      "required": false,
+      "help": "Número de cabezas, entero no negativo.",
+      "maxLength": 160
+    },
+    {
+      "key": "herd.young",
+      "label": "Vaquillas (1–2 años) (cabezas)",
+      "kind": "count",
+      "section": "Inventario de animales",
+      "required": false,
+      "help": "Número de cabezas, entero no negativo.",
+      "maxLength": 160
+    },
+    {
+      "key": "herd.femaleCalves",
+      "label": "Terneras (<1 año) (cabezas)",
+      "kind": "count",
+      "section": "Inventario de animales",
+      "required": false,
+      "help": "Número de cabezas, entero no negativo.",
+      "maxLength": 160
+    },
+    {
+      "key": "herd.maleCalves",
+      "label": "Terneros (<1 año) (cabezas)",
+      "kind": "count",
+      "section": "Inventario de animales",
+      "required": false,
+      "help": "Número de cabezas, entero no negativo.",
+      "maxLength": 160
+    },
+    {
+      "key": "herd.steersYoung",
+      "label": "Novillos (<2 años) (cabezas)",
+      "kind": "count",
+      "section": "Inventario de animales",
+      "required": false,
+      "help": "Número de cabezas, entero no negativo.",
+      "maxLength": 160
+    },
+    {
+      "key": "herd.steers",
+      "label": "Novillos (>2 años) (cabezas)",
+      "kind": "count",
+      "section": "Inventario de animales",
+      "required": false,
+      "help": "Número de cabezas, entero no negativo.",
+      "maxLength": 160
+    },
+    {
+      "key": "herd.bullocks",
+      "label": "Toretes (cabezas)",
+      "kind": "count",
+      "section": "Inventario de animales",
+      "required": false,
+      "help": "Número de cabezas, entero no negativo.",
+      "maxLength": 160
+    },
+    {
+      "key": "herd.bulls",
+      "label": "Toros reproductores (cabezas)",
+      "kind": "count",
+      "section": "Inventario de animales",
+      "required": false,
+      "help": "Número de cabezas, entero no negativo.",
+      "maxLength": 160
+    },
+    {
+      "key": "herd.equids",
+      "label": "Équidos en pastoreo (cabezas)",
+      "kind": "count",
+      "section": "Inventario de animales",
+      "required": false,
+      "help": "Número de cabezas, entero no negativo.",
+      "maxLength": 160
+    },
+    {
+      "key": "herd.pigs",
+      "label": "Porcinos (cabezas)",
+      "kind": "count",
+      "section": "Inventario de animales",
+      "required": false,
+      "help": "Número de cabezas, entero no negativo.",
+      "maxLength": 160
+    },
+    {
+      "key": "herd.goats",
+      "label": "Caprinos (cabezas)",
+      "kind": "count",
+      "section": "Inventario de animales",
+      "required": false,
+      "help": "Número de cabezas, entero no negativo.",
+      "maxLength": 160
+    },
+    {
+      "key": "herd.sheep",
+      "label": "Ovinos (cabezas)",
+      "kind": "count",
+      "section": "Inventario de animales",
+      "required": false,
+      "help": "Número de cabezas, entero no negativo.",
+      "maxLength": 160
+    },
+    {
+      "key": "herd.poultry",
+      "label": "Aves de corral (cabezas)",
+      "kind": "count",
+      "section": "Inventario de animales",
+      "required": false,
+      "help": "Número de cabezas, entero no negativo.",
+      "maxLength": 160
+    },
+    {
+      "key": "dg.riverProtected",
+      "label": "Protege corredor ribereño",
+      "kind": "choice",
+      "section": "Manejo y producción",
+      "required": false,
+      "help": "Dato del diagnóstico. Si no se conoce, deja vacío y se señalará para revisión.",
+      "maxLength": 160,
+      "choices": [
+        "No",
+        "Sí"
+      ],
+      "default": "No"
+    },
+    {
+      "key": "dg.associatedTrees",
+      "label": "Asociación pastos árboles",
+      "kind": "choice",
+      "section": "Manejo y producción",
+      "required": false,
+      "help": "Dato del diagnóstico. Si no se conoce, deja vacío y se señalará para revisión.",
+      "maxLength": 160,
+      "choices": [
+        "No",
+        "Sí"
+      ],
+      "default": "No"
+    },
+    {
+      "key": "dg.liveFences",
+      "label": "Usa cercas vivas",
+      "kind": "choice",
+      "section": "Manejo y producción",
+      "required": false,
+      "help": "Dato del diagnóstico. Si no se conoce, deja vacío y se señalará para revisión.",
+      "maxLength": 160,
+      "choices": [
+        "No",
+        "Sí"
+      ],
+      "default": "No"
+    },
+    {
+      "key": "dg.organicMade",
+      "label": "Elabora abono orgánico",
+      "kind": "choice",
+      "section": "Manejo y producción",
+      "required": false,
+      "help": "Dato del diagnóstico. Si no se conoce, deja vacío y se señalará para revisión.",
+      "maxLength": 160,
+      "choices": [
+        "No",
+        "Sí"
+      ],
+      "default": "No"
+    },
+    {
+      "key": "dg.regeneration",
+      "label": "Regeneración natural",
+      "kind": "choice",
+      "section": "Manejo y producción",
+      "required": false,
+      "help": "Dato del diagnóstico. Si no se conoce, deja vacío y se señalará para revisión.",
+      "maxLength": 160,
+      "choices": [
+        "No",
+        "Sí"
+      ],
+      "default": "No"
+    },
+    {
+      "key": "dg.paddocks",
+      "label": "Número de mangas",
+      "kind": "count",
+      "section": "Manejo y producción",
+      "required": false,
+      "help": "Cantidad del diagnóstico; vacío se interpreta como cero.",
+      "maxLength": 160
+    },
+    {
+      "key": "dg.grazing",
+      "label": "Tipo de pastoreo",
+      "kind": "choice",
+      "section": "Manejo y producción",
+      "required": false,
+      "help": "Dato del diagnóstico. Si no se conoce, deja vacío y se señalará para revisión.",
+      "maxLength": 160,
+      "choices": [
+        "Rotacional",
+        "Continuo",
+        "Alterno"
+      ],
+      "default": "Rotacional"
+    },
+    {
+      "key": "dg.occupation",
+      "label": "Días ocupación",
+      "kind": "number",
+      "section": "Manejo y producción",
+      "required": false,
+      "help": "Cantidad del diagnóstico; vacío se interpreta como cero.",
+      "maxLength": 160
+    },
+    {
+      "key": "dg.rest",
+      "label": "Días descanso",
+      "kind": "number",
+      "section": "Manejo y producción",
+      "required": false,
+      "help": "Si es rotacional, la app calcula (mangas − 1) × días de ocupación.",
+      "maxLength": 160
+    },
+    {
+      "key": "dg.semistable",
+      "label": "Semiestabulación",
+      "kind": "choice",
+      "section": "Manejo y producción",
+      "required": false,
+      "help": "Dato del diagnóstico. Si no se conoce, deja vacío y se señalará para revisión.",
+      "maxLength": 160,
+      "choices": [
+        "No",
+        "Sí"
+      ],
+      "default": "No"
+    },
+    {
+      "key": "dg.fertilization",
+      "label": "Fertiliza pasturas",
+      "kind": "text",
+      "section": "Manejo y producción",
+      "required": false,
+      "help": "Dato del diagnóstico. Si no se conoce, deja vacío y se señalará para revisión.",
+      "maxLength": 160,
+      "default": ""
+    },
+    {
+      "key": "dg.improvedCondition",
+      "label": "Estado pasto mejorado",
+      "kind": "choice",
+      "section": "Manejo y producción",
+      "required": false,
+      "help": "Dato del diagnóstico. Si no se conoce, deja vacío y se señalará para revisión.",
+      "maxLength": 160,
+      "choices": [
+        "Sin registrar",
+        "Bueno",
+        "Regular",
+        "Malo"
+      ],
+      "default": "Sin registrar"
+    },
+    {
+      "key": "dg.naturalCondition",
+      "label": "Estado pasto naturalizado",
+      "kind": "choice",
+      "section": "Manejo y producción",
+      "required": false,
+      "help": "Dato del diagnóstico. Si no se conoce, deja vacío y se señalará para revisión.",
+      "maxLength": 160,
+      "choices": [
+        "Sin registrar",
+        "Bueno",
+        "Regular",
+        "Malo"
+      ],
+      "default": "Sin registrar"
+    },
+    {
+      "key": "dg.cutCondition",
+      "label": "Estado pasto corte",
+      "kind": "choice",
+      "section": "Manejo y producción",
+      "required": false,
+      "help": "Dato del diagnóstico. Si no se conoce, deja vacío y se señalará para revisión.",
+      "maxLength": 160,
+      "choices": [
+        "Sin registrar",
+        "Bueno",
+        "Regular",
+        "Malo"
+      ],
+      "default": "Sin registrar"
+    },
+    {
+      "key": "dg.caneCondition",
+      "label": "Estado caña",
+      "kind": "choice",
+      "section": "Manejo y producción",
+      "required": false,
+      "help": "Dato del diagnóstico. Si no se conoce, deja vacío y se señalará para revisión.",
+      "maxLength": 160,
+      "choices": [
+        "Sin registrar",
+        "Bueno",
+        "Regular",
+        "Malo"
+      ],
+      "default": "Sin registrar"
+    },
+    {
+      "key": "dg.supplements",
+      "label": "Suplementa épocas críticas",
+      "kind": "choice",
+      "section": "Manejo y producción",
+      "required": false,
+      "help": "Dato del diagnóstico. Si no se conoce, deja vacío y se señalará para revisión.",
+      "maxLength": 160,
+      "choices": [
+        "No",
+        "Sí"
+      ],
+      "default": "No"
+    },
+    {
+      "key": "dg.concentrate",
+      "label": "Utiliza concentrados",
+      "kind": "choice",
+      "section": "Manejo y producción",
+      "required": false,
+      "help": "Dato del diagnóstico. Si no se conoce, deja vacío y se señalará para revisión.",
+      "maxLength": 160,
+      "choices": [
+        "No",
+        "Sí"
+      ],
+      "default": "No"
+    },
+    {
+      "key": "dg.supplementNames",
+      "label": "Suplementos utilizados",
+      "kind": "text",
+      "section": "Manejo y producción",
+      "required": false,
+      "help": "Dato del diagnóstico. Si no se conoce, deja vacío y se señalará para revisión.",
+      "maxLength": 500,
+      "default": ""
+    },
+    {
+      "key": "dg.milkings",
+      "label": "Ordeños diarios",
+      "kind": "number",
+      "section": "Manejo y producción",
+      "required": false,
+      "help": "Cantidad del diagnóstico; vacío se interpreta como cero.",
+      "maxLength": 160
+    },
+    {
+      "key": "dg.milkingCows",
+      "label": "Vacas en ordeño",
+      "kind": "count",
+      "section": "Manejo y producción",
+      "required": false,
+      "help": "Cantidad del diagnóstico; vacío se interpreta como cero.",
+      "maxLength": 160
+    },
+    {
+      "key": "dg.dailyMilk",
+      "label": "Leche diaria litros",
+      "kind": "number",
+      "section": "Manejo y producción",
+      "required": false,
+      "help": "Cantidad del diagnóstico; vacío se interpreta como cero.",
+      "maxLength": 160
+    },
+    {
+      "key": "dg.milkDays",
+      "label": "Período de ordeño días",
+      "kind": "number",
+      "section": "Manejo y producción",
+      "required": false,
+      "help": "Cantidad del diagnóstico; vacío se interpreta como cero.",
+      "maxLength": 160
+    },
+    {
+      "key": "mm.main.system",
+      "label": "Manejo de estiércol: bovinos y équidos",
+      "kind": "choice",
+      "section": "Manejo del estiércol",
+      "required": false,
+      "help": "Sin información, conserva Sin especificar; se mantendrán los factores anteriores.",
+      "maxLength": 160,
+      "choices": [
+        "Sin especificar",
+        "Potrero",
+        "Corral seco",
+        "Montón sólido",
+        "Compostaje",
+        "Aplicación diaria",
+        "Purines (1 mes)",
+        "Laguna anaerobia"
+      ],
+      "default": "Sin especificar"
+    },
+    {
+      "key": "mm.main.percent",
+      "label": "Estiércol en ese sistema: bovinos y équidos (%)",
+      "kind": "percentage",
+      "section": "Manejo del estiércol",
+      "required": false,
+      "help": "De 0 a 100. Si se recoge parte del estiércol, el resto se considera en potrero.",
+      "maxLength": 160
+    },
+    {
+      "key": "mm.others.system",
+      "label": "Manejo de estiércol: otras especies",
+      "kind": "choice",
+      "section": "Manejo del estiércol",
+      "required": false,
+      "help": "Sin información, conserva Sin especificar; se mantendrán los factores anteriores.",
+      "maxLength": 160,
+      "choices": [
+        "Sin especificar",
+        "Potrero",
+        "Corral seco",
+        "Montón sólido",
+        "Compostaje",
+        "Aplicación diaria",
+        "Purines (1 mes)",
+        "Laguna anaerobia"
+      ],
+      "default": "Sin especificar"
+    },
+    {
+      "key": "mm.others.percent",
+      "label": "Estiércol en ese sistema: otras especies (%)",
+      "kind": "percentage",
+      "section": "Manejo del estiércol",
+      "required": false,
+      "help": "De 0 a 100. Si se recoge parte del estiércol, el resto se considera en potrero.",
+      "maxLength": 160
+    },
+    {
+      "key": "manureNote",
+      "label": "Observaciones del manejo de estiércol",
+      "kind": "text",
+      "section": "Manejo del estiércol",
+      "required": false,
+      "help": "",
+      "maxLength": 1000
+    },
+    {
+      "key": "input.organic",
+      "label": "Abono orgánico aplicado al suelo (kg/año)",
+      "kind": "number",
+      "section": "Insumos del año",
+      "required": false,
+      "help": "Cantidad total anual. Vacío = cero en el cálculo, señalado como dato faltante.",
+      "maxLength": 160
+    },
+    {
+      "key": "input.residues",
+      "label": "Residuos incorporados al suelo (kg/año)",
+      "kind": "number",
+      "section": "Insumos del año",
+      "required": false,
+      "help": "Cantidad total anual. Vacío = cero en el cálculo, señalado como dato faltante.",
+      "maxLength": 160
+    },
+    {
+      "key": "input.diesel",
+      "label": "Diésel (galones/año)",
+      "kind": "number",
+      "section": "Insumos del año",
+      "required": false,
+      "help": "Cantidad total anual. Vacío = cero en el cálculo, señalado como dato faltante.",
+      "maxLength": 160
+    },
+    {
+      "key": "input.gasoline",
+      "label": "Gasolina (galones/año)",
+      "kind": "number",
+      "section": "Insumos del año",
+      "required": false,
+      "help": "Cantidad total anual. Vacío = cero en el cálculo, señalado como dato faltante.",
+      "maxLength": 160
+    },
+    {
+      "key": "organicProduct",
+      "label": "Tipo de abono orgánico",
+      "kind": "text",
+      "section": "Insumos del año",
+      "required": false,
+      "help": "",
+      "maxLength": 200
+    },
+    {
+      "key": "milk",
+      "label": "Leche anual confirmada (litros)",
+      "kind": "number",
+      "section": "Insumos del año",
+      "required": false,
+      "help": "Solo si existe un total anual confirmado; no inventar a partir de una medición diaria.",
+      "maxLength": 160
+    },
+    {
+      "key": "manualFence",
+      "label": "Cercas vivas estimadas (km)",
+      "kind": "optionalNumber",
+      "section": "Estimaciones opcionales",
+      "required": false,
+      "help": "Vacío = estimación de la app. Un cero explícito se respeta como cero.",
+      "maxLength": 160
+    },
+    {
+      "key": "manualTrees",
+      "label": "Área con árboles dispersos (ha)",
+      "kind": "optionalNumber",
+      "section": "Estimaciones opcionales",
+      "required": false,
+      "help": "Vacío = cobertura acordada de la app. Un cero explícito se respeta como cero.",
+      "maxLength": 160
+    },
+    {
+      "key": "technician",
+      "label": "Nombre del técnico",
+      "kind": "text",
+      "section": "Responsable y observaciones",
+      "required": false,
+      "help": "",
+      "maxLength": 160
+    },
+    {
+      "key": "notes",
+      "label": "Observaciones",
+      "kind": "text",
+      "section": "Responsable y observaciones",
+      "required": false,
+      "help": "Anota los datos no reportados y la referencia del diagnóstico.",
+      "maxLength": 4000
+    }
+  ],
+  "systemMap": {
+    "Sin especificar": "legacy",
+    "Potrero": "pasture",
+    "Corral seco": "drylot",
+    "Montón sólido": "solid",
+    "Compostaje": "compost",
+    "Aplicación diaria": "daily",
+    "Purines (1 mes)": "liquid",
+    "Laguna anaerobia": "lagoon"
+  },
+  "geo": {
+    "Bocas del Toro": [
+      "Almirante",
+      "Bocas del Toro",
+      "Changuinola",
+      "Chiriquí Grande"
+    ],
+    "Coclé": [
+      "Aguadulce",
+      "Antón",
+      "La Pintada",
+      "Natá",
+      "Olá",
+      "Penonomé"
+    ],
+    "Colón": [
+      "Chagres",
+      "Colón",
+      "Donoso",
+      "Omar Torrijos Herrera",
+      "Portobelo",
+      "Santa Isabel"
+    ],
+    "Chiriquí": [
+      "Alanje",
+      "Barú",
+      "Boquerón",
+      "Boquete",
+      "Bugaba",
+      "David",
+      "Dolega",
+      "Gualaca",
+      "Remedios",
+      "Renacimiento",
+      "San Félix",
+      "San Lorenzo",
+      "Tierras Altas",
+      "Tolé"
+    ],
+    "Darién": [
+      "Chepigana",
+      "Pinogana",
+      "Santa Fe"
+    ],
+    "Herrera": [
+      "Chitré",
+      "Las Minas",
+      "Los Pozos",
+      "Ocú",
+      "Parita",
+      "Pesé",
+      "Santa María"
+    ],
+    "Los Santos": [
+      "Guararé",
+      "Las Tablas",
+      "Los Santos",
+      "Macaracas",
+      "Pedasí",
+      "Pocrí",
+      "Tonosí"
+    ],
+    "Panamá": [
+      "Balboa",
+      "Chepo",
+      "Chimán",
+      "Panamá",
+      "San Miguelito",
+      "Taboga"
+    ],
+    "Panamá Este": [
+      "Chepo",
+      "Chimán",
+      "Panamá"
+    ],
+    "Panamá Oeste": [
+      "Arraiján",
+      "Capira",
+      "Chame",
+      "La Chorrera",
+      "San Carlos"
+    ],
+    "Veraguas": [
+      "Atalaya",
+      "Calobre",
+      "Cañazas",
+      "La Mesa",
+      "Las Palmas",
+      "Mariato",
+      "Montijo",
+      "Río de Jesús",
+      "San Francisco",
+      "Santa Fe",
+      "Santiago",
+      "Soná"
+    ],
+    "Comarca Ngäbe-Buglé": [
+      "Besikó",
+      "Jirondai",
+      "Kankintú",
+      "Kusapín",
+      "Mironó",
+      "Müna",
+      "Nole Duima",
+      "Ñürüm",
+      "Santa Catalina o Calovébora"
+    ]
+  }
+}

@@ -1,3 +1,11 @@
+GEI PANAMÁ · v2.16 · CARGA DE PLANILLA EXCEL
+
+Incluye Cargar planilla Excel y Plantilla_GEIPanama.xlsx. Una finca y una fecha
+por archivo; completa el formulario, muestra un aviso y espera Guardar finca.
+Se validan superficies, fecha, números, ubicación y duplicados antes de cargar.
+No necesita cambios en Supabase. Lee LEEME_PLANILLA.txt para el procedimiento.
+Publica TODOS los archivos, incluida la carpeta vendor, y recarga con Ctrl+F5.
+
 GEI PANAMÁ · v2.4 · FORMULARIO NUEVO DESPUÉS DE GUARDAR
 Al guardar correctamente (en navegador o base compartida), se limpia toda la
 ficha y queda lista para comenzar por la cédula de otra finca. Se genera otro
